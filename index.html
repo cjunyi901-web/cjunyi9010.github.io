@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Junyi 的個人作品集：關於我、興趣、作品與聯絡方式。"
+    />
+    <title>Junyi — 個人作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="回到首頁">JY<span>.</span></a>
+      <button class="menu-button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+        <span class="sr-only">開啟選單</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="主要選單">
+        <a href="#about">關於我</a>
+        <a href="#interests">興趣</a>
+        <a href="#work">作品</a>
+        <a class="nav-contact" href="#contact">聯絡我</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PORTFOLIO / 2026</p>
+          <h1>把想法，<br />做成<span>有感的體驗。</span></h1>
+          <p class="hero-intro">
+            嗨，我是 Junyi。一位喜歡觀察、思考，並用設計與程式解決問題的創作者。
+          </p>
+          <a class="text-link" href="#work">看看我的作品 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="sphere"></div>
+          <p>CREATE<br />WITH<br />INTENT</p>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section reveal">
+        <p class="section-number">01 / 關於我</p>
+        <div class="section-content split-content">
+          <h2>好奇心，是我<br />前進的起點。</h2>
+          <div>
+            <p>
+              我相信好的創作來自細膩的觀察。無論是網站、介面，或是一段日常體驗，我都喜歡追問：怎麼做，才能更清楚、更自然，也更令人喜歡？
+            </p>
+            <p>
+              現在持續學習網頁開發與數位設計，期待把每一個小小的靈感，轉化成真正能被使用的作品。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="interests" class="section interest-section reveal">
+        <p class="section-number">02 / 興趣</p>
+        <div class="section-content">
+          <h2>讓生活為創作<br />補充養分。</h2>
+          <div class="interest-list">
+            <article><span>01</span><h3>設計探索</h3><p>蒐集好看的版面，研究讓人想停留的細節。</p></article>
+            <article><span>02</span><h3>影像紀錄</h3><p>用鏡頭保存光線、顏色與平凡日子裡的片刻。</p></article>
+            <article><span>03</span><h3>音樂與閱讀</h3><p>從旋律和文字裡，找到不同觀看世界的角度。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="section work-section reveal">
+        <p class="section-number">03 / 作品</p>
+        <div class="section-content">
+          <div class="work-heading"><h2>近期精選。</h2><p>以下是一些練習與創作，持續更新中。</p></div>
+          <div class="work-grid">
+            <a class="project project-main" href="hello.html">
+              <div class="project-art art-one"><span>01</span><i></i><i></i><i></i></div>
+              <div class="project-info"><h3>大家好｜自我介紹報告</h3><p>個人簡介 / 2026</p><b>↗</b></div>
+            </a>
+            <a class="project" href="#contact">
+              <div class="project-art art-two"><span>02</span><div>WAVE<br />STUDIO</div></div>
+              <div class="project-info"><h3>Wave Studio</h3><p>品牌概念 / 2026</p><b>↗</b></div>
+            </a>
+            <a class="project" href="#contact">
+              <div class="project-art art-three"><span>03</span><div class="pixel-grid"></div></div>
+              <div class="project-info"><h3>Daily Planner</h3><p>介面設計 / 2025</p><b>↗</b></div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section reveal">
+        <p class="section-number">04 / 聯絡方式</p>
+        <h2>有想法想聊？<br /><a href="mailto:hello@example.com">寫信給我 <span>↗</span></a></h2>
+        <div class="contact-bottom"><p>也歡迎透過社群認識我。</p><div><a href="#contact">Instagram</a><a href="#contact">LinkedIn</a><a href="#contact">GitHub</a></div></div>
+      </section>
+    </main>
+
+    <footer><span>© <span id="year"></span> JUNYI</span><span>MADE WITH CARE</span></footer>
+    <script>
+      const menuButton = document.querySelector('.menu-button');
+      const nav = document.querySelector('.site-nav');
+      menuButton.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', !isOpen);
+        nav.classList.toggle('is-open');
+      });
+      document.querySelectorAll('.site-nav a').forEach((link) => link.addEventListener('click', () => {
+        nav.classList.remove('is-open'); menuButton.setAttribute('aria-expanded', 'false');
+      }));
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }), { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    </script>
+  </body>
+</html>
