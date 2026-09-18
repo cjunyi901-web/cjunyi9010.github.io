@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Junyi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="project.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="projects.html">JY<span>.</span></a>
+      <p>PROJECT ARCHIVE / 2026</p>
+      <a class="contact" href="mailto:hello@example.com">聯絡我 ↗</a>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="label">SELECTED WORKS</p>
+        <h1>PROJECT<br /><em>專區</em></h1>
+        <div class="stamp">JUNYI<br />✦<br />PROJECTS</div>
+        <p class="intro">將想法變成作品，持續記錄每一次探索與練習。</p>
+      </section>
+      <section class="archive" id="projects">
+        <div class="archive-top"><p class="label">ALL PROJECTS</p><p id="count">04 PROJECTS</p></div>
+        <div class="filters">
+          <button class="active" data-filter="all">全部</button>
+          <button data-filter="personal">個人</button>
+          <button data-filter="web">網頁</button>
+          <button data-filter="design">設計</button>
+        </div>
+        <div class="grid">
+          <a class="card main-card" data-type="personal" href="hello.html">
+            <div class="art hello"><small>01</small><strong>HELLO<br />EVERYONE</strong><i></i></div>
+            <div class="details"><div><p>PERSONAL / 2026</p><h2>大家好｜自我介紹報告</h2><span>一份關於我、興趣與持續探索的簡短自我介紹。</span></div><b>↗</b></div>
+          </a>
+          <article class="card" data-type="web">
+            <div class="art planner"><small>02</small><i></i><i></i><i></i></div>
+            <div class="details"><div><p>WEB / 2026</p><h2>Daily Planner</h2><span>協助整理日常節奏的待辦事項介面概念。</span></div><b>COMING SOON</b></div>
+          </article>
+          <article class="card" data-type="design">
+            <div class="art wave"><small>03</small><strong>WAVE<br />STUDIO</strong></div>
+            <div class="details"><div><p>BRANDING / 2026</p><h2>Wave Studio</h2><span>為創意工作室打造的視覺識別練習。</span></div><b>COMING SOON</b></div>
+          </article>
+          <article class="card" data-type="design">
+            <div class="art photo"><small>04</small><i></i><i></i><i></i></div>
+            <div class="details"><div><p>VISUAL / 2025</p><h2>拾光攝影集</h2><span>用色彩與光影記錄片刻的影像企劃。</span></div><b>COMING SOON</b></div>
+          </article>
+        </div>
+        <p class="empty" hidden>這個分類的作品正在準備中。</p>
+      </section>
+    </main>
+    <footer><span>© <span id="year"></span> JUNYI</span><a href="mailto:hello@example.com">HELLO@EXAMPLE.COM</a></footer>
+    <script>
+      const buttons = document.querySelectorAll('.filters button');
+      const cards = document.querySelectorAll('.card');
+      const count = document.querySelector('#count');
+      const empty = document.querySelector('.empty');
+      buttons.forEach((button) => button.addEventListener('click', () => {
+        let shown = 0;
+        buttons.forEach((item) => item.classList.toggle('active', item === button));
+        cards.forEach((card) => { const visible = button.dataset.filter === 'all' || card.dataset.type === button.dataset.filter; card.hidden = !visible; if (visible) shown++; });
+        count.textContent = String(shown).padStart(2, '0') + ' PROJECTS';
+        empty.hidden = shown !== 0;
+      }));
+      document.querySelector('#year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
